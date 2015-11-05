@@ -1,0 +1,138 @@
+<template name="portfolioList">
+	{{> portfolioTitle}}
+
+	<div class="wrapper-md">
+		<div class="panel panel-default">
+			<div id="table" style="margin-top:10px;">
+			    {{> reactiveTable collection=portfolios settings=tableSettings}}
+			  </div>
+			<div class="clearfix"></div>
+   		</div>	 
+	</div> 
+</template>
+
+
+<template name="portfolioMaintain">
+	{{> portfolioTitle}}
+	<div class="wrapper-md">
+		
+			{{#if Template.subscriptionsReady}}
+			{{#with item}}
+			<form class="portfolio-maintain">
+			<div class="panel panel-default">
+			<div class="panel-body">
+			
+				<input type="hidden" value="{{_id}}" name="id"/>
+				<input type="hidden" value="{{splash_image}}" name="splash_image"/>
+				<div class="row">
+					<label class="col-md-2 control-label">Title</label>
+		          	  <div class="col-md-4"><input name="title" value="{{title}}" type="text" class="form-control"></div>
+		        </div>
+				<div class="row" style="padding-top:10px">
+		          <label class="col-md-2 control-label">Client</label>
+		          <div class="col-md-4"><input name="client" value="{{client}}" type="text" class="form-control"></div>
+		        </div>
+
+		        <div class="row" style="padding-top:10px">
+		          <label class="col-md-2 control-label">Description</label>
+		          <div class="col-md-6">
+		          	<textarea name="description" class="form-control">{{description}}</textarea>
+		        	</div>
+		    	</div>
+
+		    	<div class="row" style="padding-top:10px">
+		          <label class="col-md-2 control-label">Video Url</label>
+		          <div class="col-md-6"><input name="video_url" value="{{video_url}}" type="text" class="form-control"></div>
+		    	</div>
+
+
+		    	<div class="row" style="padding-top:10px">
+		          <label class="col-md-2 control-label">Published</label>
+		          <div class="col-md-6">
+		          	<label class="i-switch i-switch-md  bg-primary m-t-xs m-r">
+              			<input value="Y" name="published" type="checkbox" {{publishedChecked published}} >
+              			<i></i>
+            		</label>
+		        	</div>
+		    	</div>
+
+		    	
+		    	
+		    	<hr/>
+
+		    	<div class="row">
+		    		<div class="col-md-12">
+		          		<span class="pull-left">
+							<button class="btn m-b-xs w-xs btn-info btnback" type="button">Back</button>
+							<button class="btn m-b-xs w-xs btn-primary btnsubmit" type="submit">Submit</button>
+							{{#if isEdit this}}
+							<button class="btn m-b-xs w-xs btn-danger btndelete" type="button">Delete</button>
+							{{/if}}
+						</span>
+		        	</div>
+		        </div>
+		        
+				</div>
+			</div>
+				{{#if isEdit this}}
+				{{> portfolioImageUpload}}
+				{{/if}}
+				</form>
+		    {{/with}}
+			
+			{{else}}
+		    	Loading... 
+			{{/if}}
+
+	</div>
+</template>
+
+<template name="portfolioImageUpload">
+				<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row" >
+			          <div class="col-md-12">
+			          	<!---->
+			          	{{> upload_bootstrap fileTypes='image/*' formData=this }}
+			          	<!-- {{> customUpload formData=this}} -->
+			          </div>
+			    	</div>
+			    	<hr/>
+			    	<div class="row" >
+				    	<div class="col-md-12">
+				    		<img src="{{splash_image}}">
+				    	</div>
+				    </div>
+				</div>
+				</div>
+</template>
+
+
+<template name="portfolioTitle">
+<div class="bg-light lter b-b wrapper-md">
+  		<h1 class="m-n font-thin h3">Portfolio</h1>
+	</div>
+</template>
+
+
+
+<template name="customUpload">
+	<form method="POST" enctype="multipart/form-data">
+		<div class="form-group col-md-12">
+			<div class="input-group col-md-12">
+				<input type="file" class="jqUploadclass" data-form-data="{{parseToJson formData}}"/>
+				{{#with infoLabel}}
+		            {{ infoLabel}} <button class="start">StartUpload</button>
+		            <div style="width: 100%">
+		                <div class="progress-bar bg-success" style="width: {{ progress }}">
+		                    {{ progress }}
+		                </div>
+		            </div>
+		        {{/with}}
+			</div>
+		</div>
+
+
+    </form>
+</template>
+
