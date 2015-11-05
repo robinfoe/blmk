@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"backendLogin\");\nTemplate[\"backendLogin\"] = new Template(\"Template.backendLogin\", (function() {\n  var view = this;\n  return \"hello logging in;\";\n}));\n","bodyAttrs":{}}

@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"mainLayout\");\nTemplate[\"mainLayout\"] = new Template(\"Template.mainLayout\", (function() {\n  var view = this;\n  return Spacebars.include(view.lookupTemplate(\"yield\"));\n}));\n","bodyAttrs":{}}
