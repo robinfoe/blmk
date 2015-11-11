@@ -42,6 +42,7 @@ Template.home.events({
 	},
 
 	'click .close' : function(event){
+		console.log('close clicked');
 		VideoPlayer.stopVideo();
 	}
 });
