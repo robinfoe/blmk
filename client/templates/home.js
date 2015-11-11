@@ -41,7 +41,7 @@ Template.home.events({
 		VideoPlayer.playVideo(Blaze.getData(event.target));
 	},
 
-	'click .overlay' : function(event){
+	'click .close' : function(event){
 		VideoPlayer.stopVideo();
 	}
 });
