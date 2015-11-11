@@ -25,7 +25,7 @@ var VideoPlayer = {
 		$('.overlay').removeClass('show');
     	setTimeout(function() { $('.overlay').css('left', '-100%') }, 300);
     	VideoPlayer.CACHE.player.api("pause");
-    	VideoPlayer.CACHE.player = null;
+    	//VideoPlayer.CACHE.player = null;
 	}
 }
 
@@ -37,12 +37,11 @@ Template.home.helpers({
 });
 
 Template.home.events({
-	'click .play' : function(event){
+	'click .play, fastclick .play' : function(event){
 		VideoPlayer.playVideo(Blaze.getData(event.target));
 	},
 
-	'click .close' : function(event){
-		console.log('close clicked');
+	'click .close,click .overlay,fastclick .overlay, fastclick .close' : function(event){
 		VideoPlayer.stopVideo();
 	}
 });
