@@ -1,1 +1,0 @@
-{"head":"","body":"","js":"\nTemplate.__checkName(\"mainNav\");\nTemplate[\"mainNav\"] = new Template(\"Template.mainNav\", (function() {\n  var view = this;\n  return HTML.DIV({\n    \"class\": \"container\"\n  }, \"\\n       \", Spacebars.include(view.lookupTemplate(\"yield\")), \"\\n    \");\n}));\n","bodyAttrs":{}}

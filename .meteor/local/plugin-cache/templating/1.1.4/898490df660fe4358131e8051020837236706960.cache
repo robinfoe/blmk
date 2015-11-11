@@ -1,1 +1,0 @@
-{"head":"","body":"","js":"\nTemplate.__checkName(\"adminLayout\");\nTemplate[\"adminLayout\"] = new Template(\"Template.adminLayout\", (function() {\n  var view = this;\n  return HTML.DIV({\n    \"class\": \"app app-header-fixed\"\n  }, \"\\n\\n       \", Spacebars.include(view.lookupTemplate(\"yield\")), \"\\n    \");\n}));\n","bodyAttrs":{}}
